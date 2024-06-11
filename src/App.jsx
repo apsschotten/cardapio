@@ -53,6 +53,7 @@ export default function App() {
               }
             </div>
             <div className="bloco-pedidos">
+                <p>Meus Pedidos</p>
                 {
                     listaPedidos.map((produto) =>
                         <table key={produto.id}>
