@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ".../src/globals.css";
 
 export default function App() {
 
@@ -29,13 +30,27 @@ export default function App() {
         },
     ]);
 
+    const[listaPedidos, setPedidos] = useState([]);
+
+    const adicionarPedido = (item) => {
+        setListaPedidos([...listaPedidos], item);
+    }
 
     
 
     return (
         <div className="bloco-principal">
             <div className="bloco-produtos">
-              
+              {
+                listaProdutos.map((produto)=>
+                    <div key={produto.id}>
+                        <img src={produto.imagem} alt={produto.item}/>
+                        <p>{produto.item}</p>
+                        <p>{produto.preco}</p>
+                        <button onClick={() => adicionarPedido(produto)}>Quero!</button>
+                    </div>
+                )
+              }
             </div>
             <div className="bloco-pedidos">
                 
